@@ -1,5 +1,4 @@
-import { message } from "statuses";
-import { signupSchema } from "../utils/joi";
+import { signupSchema } from "../utils/joi.js";
 
 export const signup = async (req, res) => {
     try {
