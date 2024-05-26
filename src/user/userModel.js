@@ -3,26 +3,26 @@ import { excuteQuery } from "../config/database.js";
 export const createUserTable = async () => {
     try {
         const query = `CREATE TABLE IF NOT EXISTS Users(
-            id INT AUTO_INCREMENT PRIMARY KEY,
+            userID INT AUTO_INCREMENT PRIMARY KEY,
             email VARCHAR(255) NOT NULL,
             password VARCHAR(255) NOT NULL,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         )`;
 
         await excuteQuery(query, []);
-        console.log('User table created successfully');
+        console.log('Database connection successful');
     } catch (error) {
-        console.log('Error creating user table', error);
+        console.log('Error connecting to the database', error);
     }
 }
 
-export const alterUserTable = async () => {
-    try {
-        const query = `ALTER TABLE Users
-        ADD Firstname VARCHAR(255) NOT NULL,
-        ADD Lastname VARCHAR(255),
-        ADD CONSTRAINT UQ_email UNIQUE(email)
-        `;
+// export const alterUserTable = async () => {
+//     try {
+//         const query = `ALTER TABLE Users
+//         ADD Firstname VARCHAR(255) NOT NULL,
+//         ADD Lastname VARCHAR(255),
+//         ADD CONSTRAINT UQ_email UNIQUE(email)
+//         `;
 
 
         // const query = `
@@ -55,9 +55,9 @@ export const alterUserTable = async () => {
 // DELIMITER ; 
 //         `
 
-        await excuteQuery(query, []);
-        console.log('User table altered successfully');
-    } catch (error) {
-        console.log('Error Altering users table', error);
-    }
-}
+//         await excuteQuery(query, []);
+//         console.log('User table altered successfully');
+//     } catch (error) {
+//         console.log('Error Altering users table', error);
+//     }
+// }

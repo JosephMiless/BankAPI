@@ -12,10 +12,10 @@ export const findUser = async (email) => {
     }
 }
 
-export const createUser = async (email, password) => {
+export const createUser = async (email, password, Firstname, Lastname) => {
     try {
-        const query = `INSERT INTO users (email, password) VALUES (?, ?)`;
-        const result = await excuteQuery(query, [email, password]);
+        const query = `INSERT INTO users (email, password, Firstname, Lastname) VALUES (?, ?, ?, ?)`;
+        const result = await excuteQuery(query, [email, password, Firstname, Lastname]);
         return result;
     } catch (error) {
         console.log('Error creating user', error);
